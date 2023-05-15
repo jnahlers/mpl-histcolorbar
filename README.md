@@ -1,4 +1,7 @@
-![mpl-histcolorbar logo](https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true">
+  <img alt="mpl-histcolorbar logo" src="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true">
+</picture>
 
 # mpl-histcolorbar
 [![PyPI version](https://badge.fury.io/py/mpl-histcolorbar.svg)](https://badge.fury.io/py/mpl-histcolorbar)
