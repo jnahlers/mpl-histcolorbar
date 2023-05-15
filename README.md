@@ -5,7 +5,6 @@
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mpl-histcolorbar.svg)](https://anaconda.org/conda-forge/mpl-histcolorbar)
 [![Coverage Status](https://coveralls.io/repos/github/keflavich/mpl-histcolorbar/badge.svg?branch=master)](https://coveralls.io/github/keflavich/mpl-histcolorbar?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/mpl-histcolorbar/badge/?version=latest)](https://mpl-histcolorbar.readthedocs.io/en/latest/?badge=latest)
-----
 
 A drop-in replacement for matplotlib's colorbar that shows the frequency of each color in the mappable.
 
