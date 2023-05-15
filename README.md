@@ -1,4 +1,4 @@
-![mpl-histcolorbar logo](https://github.com/jnahlers/mpl-histcolorbar/blob/master/docs/_static/logo.png?raw=true)
+![mpl-histcolorbar logo](https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true)
 
 # mpl-histcolorbar
 [![PyPI version](https://badge.fury.io/py/mpl-histcolorbar.svg)](https://badge.fury.io/py/mpl-histcolorbar)
