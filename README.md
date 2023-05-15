@@ -1,2 +1,48 @@
+<text-align: center;>
+<img src="https://raw.githubusercontent.com/jnahlers/mpl-histcolorbar/master/docs/_static/logo.png" width="200px" />
+</text-align>
+
 # mpl-histcolorbar
- A histogram+colorbar for matplotlib
+[![PyPI version](https://badge.fury.io/py/mpl-histcolorbar.svg)](https://badge.fury.io/py/mpl-histcolorbar)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/mpl-histcolorbar.svg)](https://anaconda.org/conda-forge/mpl-histcolorbar)
+[![Coverage Status](https://coveralls.io/repos/github/keflavich/mpl-histcolorbar/badge.svg?branch=master)](https://coveralls.io/github/keflavich/mpl-histcolorbar?branch=master)
+[![Documentation Status](https://readthedocs.org/projects/mpl-histcolorbar/badge/?version=latest)](https://mpl-histcolorbar.readthedocs.io/en/latest/?badge=latest)
+----
+
+A drop-in replacement for matplotlib's colorbar that shows the frequency of each color in the mappable.
+
+## Getting started
+
+mpl-histcolorbar is available as [`mpl-histcolorbar`](https://pypi.org/project/mpl-histcolorbar/) on PyPI:
+
+```bash
+pip install mpl-histcolorbar
+```
+
+or [`mpl-histcolorbar`](https://anaconda.org/conda-forge/mpl-histcolorbar) on conda-forge:
+
+```bash
+conda install -c conda-forge mpl-histcolorbar
+```
+
+## Usage
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_histcolorbar import HistColorbar
+
+x = np.random.normal(size=10000)
+y = np.random.normal(size=10000)
+plt.hist2d(x, y, bins=100)
+plt.colorbar()
+plt.show()
+```
+
+Documentation is available at [mpl-histcolorbar.readthedocs.io](https://mpl-histcolorbar.readthedocs.io/en/latest/).
+
+
+## License
+Original code is licensed under the [MIT license](https://opensource.org/licenses/MIT). This project directly derives 
+from [matplotlib](https://matplotlib.org/), and any use of this project is subject to
+the [matplotlib license agreement](https://matplotlib.org/stable/users/project/license.html).  
