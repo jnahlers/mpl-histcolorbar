@@ -16,9 +16,11 @@ class HistColorbar(Colorbar):
     An extension of the matplotlib colorbar that shows a histogram of the color values.
     """
     def __init__(self, ax, mappable, *,
+                 bins='auto',
+                 separate_hist=False,
+                 hist_fraction=0.5,
+                 hist_color=None,
                  alpha=None,
-                 values=None,
-                 boundaries=None,
                  orientation=None,
                  ticklocation='auto',
                  spacing='uniform',
@@ -31,27 +33,33 @@ class HistColorbar(Colorbar):
                  ):
 
         # Calculate the histogram
-        self._hist, self._bin_edges = _calculate_histogram(mappable)
+        self._hist, self._bin_edges = _calculate_histogram(mappable, bins)
 
-        # Adjust to allow one to qualitatively see all histogram bins, even when 0
-        self._hist = self._hist + np.max(self._hist)
+        # Calculate the width of the colorbar
+        if separate_hist:
+            hist_width = np.max(self._hist)
+            cb_width = (hist_width / hist_fraction) - 1
+        else:
+            hist_width = np.max(self._hist)
+            cb_width = 0
+        self._hist_width = hist_width
+        self._cb_width = cb_width
 
-        self._max = np.max(self._hist)
+        self._hist_color = hist_color
 
         # Set the values to be the center of the bins
         values = (self._bin_edges[:-1] + self._bin_edges[1:]) / 2
 
         Colorbar.__init__(self, ax, mappable, alpha=alpha,
-                          values=values, boundaries=boundaries,
+                          values=values,
                           orientation=orientation, ticklocation=ticklocation, spacing=spacing, ticks=ticks,
                           format=format, drawedges=drawedges, filled=filled, label=label, location=location)
 
     def _draw_all(self):
-        """docstring for _draw_all"""
         """
-                Calculate any free parameters based on the current cmap and norm,
-                and do all the drawing.
-                """
+        Calculate any free parameters based on the current cmap and norm,
+        and do all the drawing.
+        """
         if self.orientation == 'vertical':
             if mpl.rcParams['ytick.minor.visible']:
                 self.minorticks_on()
@@ -99,12 +107,24 @@ class HistColorbar(Colorbar):
                 ind = ind[:-1]
 
             # Set up the histogram tiles
-            C = np.tile(self._values[ind], (np.max(self._hist), 1))
-            C = np.swapaxes(C, 0, 1)
+            if self._hist_color is None:
+                hist_values = self._values[ind]
+            else:
+                hist_values = np.full(self._values[ind].shape, np.nan)
+
+            C_hist = np.tile(hist_values, (np.max(self._hist), 1))
+            C_hist = np.swapaxes(C_hist, 0, 1)
 
             # Mask the tiles that are outside the histogram
             mask = np.arange(np.max(self._hist)) < self._hist[:, np.newaxis]
-            C = np.ma.array(C, mask=~mask)
+            C_hist = np.ma.array(C_hist, mask=~mask)
+
+            # Set up the colorbar tiles
+            C_cb = np.tile(self._values[ind], (self._cb_width, 1))
+            C_cb = np.swapaxes(C_cb, 0, 1)
+
+            # Combine the tiles
+            C = np.concatenate((C_hist, C_cb), axis=0)
 
             self._add_solids(X, Y, C)
 
@@ -136,7 +156,8 @@ class HistColorbar(Colorbar):
         self._y = y
 
         # Number of histogram counts
-        x = np.arange(0, np.max(self._hist) + 1, 1)
+        width = self._hist_width + self._cb_width
+        x = np.arange(0, width + 1, 1)
 
         X, Y = np.meshgrid(x, y)
         if self.orientation == 'vertical':
