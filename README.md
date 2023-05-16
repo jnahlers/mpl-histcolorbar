@@ -4,6 +4,9 @@
   <img alt="mpl-histcolorbar logo" src="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true">
 </picture>
 
+<p align="center"><img width=90% src="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true"></p>
+
+
 # mpl-histcolorbar
 [![PyPI version](https://badge.fury.io/py/mpl-histcolorbar.svg)](https://badge.fury.io/py/mpl-histcolorbar)
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mpl-histcolorbar.svg)](https://anaconda.org/conda-forge/mpl-histcolorbar)
