@@ -4,7 +4,7 @@
   <img alt="mpl-histcolorbar logo" src="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true">
 </picture>
 
-<p align="center"><img width=90% src="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true"></p>
+<p align="center"><img width=90% src="https://raw.githubusercontent.com/jnahlers/mpl-histcolorbar/main/docs/_static/logo.png"></p>
 
 
 # mpl-histcolorbar
