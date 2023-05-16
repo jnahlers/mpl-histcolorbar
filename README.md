@@ -1,9 +1,5 @@
 <p align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true">
   <img alt="mpl-histcolorbar logo" width=60% src="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true">
-</picture>
 </p>
 
 # mpl-histcolorbar
