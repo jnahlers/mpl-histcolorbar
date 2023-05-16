@@ -12,24 +12,25 @@ def _calculate_histogram(mappable, bins='auto'):
 
 
 class HistColorbar(Colorbar):
-    def __init__(self, ax, mappable=None, *, cmap=None,
-                 norm=None,
+    """
+    An extension of the matplotlib colorbar that shows a histogram of the color values.
+    """
+    def __init__(self, ax, mappable, *,
                  alpha=None,
                  values=None,
                  boundaries=None,
                  orientation=None,
                  ticklocation='auto',
-                 extend=None,
                  spacing='uniform',
                  ticks=None,
                  format=None,
                  drawedges=False,
                  filled=True,
-                 extendfrac=None,
-                 extendrect=False,
                  label='',
                  location=None,
                  ):
+
+        # Calculate the histogram
         self._hist, self._bin_edges = _calculate_histogram(mappable)
 
         # Adjust to allow one to qualitatively see all histogram bins, even when 0
@@ -40,13 +41,10 @@ class HistColorbar(Colorbar):
         # Set the values to be the center of the bins
         values = (self._bin_edges[:-1] + self._bin_edges[1:]) / 2
 
-        Colorbar.__init__(self, ax, mappable, cmap=cmap, norm=norm, alpha=alpha,
+        Colorbar.__init__(self, ax, mappable, alpha=alpha,
                           values=values, boundaries=boundaries,
-                          orientation=orientation, ticklocation=ticklocation,
-                          extend=extend, spacing=spacing, ticks=ticks,
-                          format=format, drawedges=drawedges, filled=filled,
-                          extendfrac=extendfrac, extendrect=extendrect,
-                          label=label, location=location)
+                          orientation=orientation, ticklocation=ticklocation, spacing=spacing, ticks=ticks,
+                          format=format, drawedges=drawedges, filled=filled, label=label, location=location)
 
     def _draw_all(self):
         """docstring for _draw_all"""
