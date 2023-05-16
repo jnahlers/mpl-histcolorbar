@@ -8,10 +8,13 @@ version = "0.0.1"
 authors = [
     { name = "Jannis Ahlers", email = "jannis.ahlers@monash.edu" }
 ]
+license = { file = "LICENSE" }
 description = "A histogram+colorbar for matplotlib"
 readme = "README.md"
 requires-python = ">=3.8"
+keywords = ["matplotlib", "colorbar", "histogram"]
 classifiers = [
+    "License :: OSI Approved :: MIT License",
     "Development Status :: 1 - Planning",
     "Intended Audience :: Developers",
     "Operating System :: OS Independent",
@@ -20,3 +23,10 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
+dependencies = [
+    "matplotlib>=3.4.0",
+    "numpy>=1.20.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/jnahlers/mpl-histcolorbar"
