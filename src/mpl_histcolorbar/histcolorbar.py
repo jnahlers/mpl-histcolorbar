@@ -84,7 +84,7 @@ class HistColorbar(Colorbar):
         # Calculate the width of the colorbar
         if separate_hist:
             hist_width = np.max(self._hist)
-            cb_width = math.ceil(hist_width / hist_fraction) - 1
+            cb_width = math.ceil((hist_width / hist_fraction) - hist_width)
         else:
             hist_width = np.max(self._hist)
             cb_width = 0
