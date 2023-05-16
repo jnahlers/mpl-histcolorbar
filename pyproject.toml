@@ -28,5 +28,14 @@ dependencies = [
     "numpy>=1.20.0",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.2.0",
+    "pytest-cov>=2.11.1",
+    "black>=20.8b1",
+    "ruff>=0.3.0",
+    "spinx>=3.5.3",
+]
+
 [project.urls]
 Homepage = "https://github.com/jnahlers/mpl-histcolorbar"
