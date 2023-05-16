@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'mpl-histcolorbar'
+project = 'mpl_histcolorbar'
 copyright = '2023, Jannis Ahlers'
 author = 'Jannis Ahlers'
 

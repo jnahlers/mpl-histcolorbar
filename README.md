@@ -15,13 +15,13 @@ A drop-in replacement for matplotlib's colorbar that shows the frequency of each
 mpl-histcolorbar is available as [`mpl-histcolorbar`](https://pypi.org/project/mpl-histcolorbar/) on PyPI:
 
 ```bash
-pip install mpl-histcolorbar
+pip install mpl_histcolorbar
 ```
 
 or [`mpl-histcolorbar`](https://anaconda.org/conda-forge/mpl-histcolorbar) on conda-forge:
 
 ```bash
-conda install -c conda-forge mpl-histcolorbar
+conda install -c conda-forge mpl_histcolorbar
 ```
 
 ## Usage
