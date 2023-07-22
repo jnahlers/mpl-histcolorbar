@@ -38,7 +38,7 @@ plot_im = ax.imshow(im)
 hcb = histcolorbar(fig, plot_im, location='bottom')
 ```
 
-![Example]("https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/readme_example.png?raw=true")
+![Example](https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/readme_example.png?raw=true)
 
 Documentation is available at [mpl-histcolorbar.readthedocs.io](https://mpl-histcolorbar.readthedocs.io/en/latest/).
 
