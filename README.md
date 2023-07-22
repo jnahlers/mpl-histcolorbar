@@ -29,12 +29,12 @@ conda install -c conda-forge mpl_histcolorbar
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl-histcolorbar import histcolorbar
+from mpl_histcolorbar import histcolorbar
 
 im = np.random.normal(size=(100, 100))
 fig, ax = plt.subplots()
-ax.imshow(im)
-hcb = histcolorbar(fig, ax, im)
+plot_im = ax.imshow(im)
+hcb = histcolorbar(fig, plot_im)
 ```
 
 Documentation is available at [mpl-histcolorbar.readthedocs.io](https://mpl-histcolorbar.readthedocs.io/en/latest/).
