@@ -24,16 +24,16 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Visualization",
 ]
 dependencies = [
-    "matplotlib>=3.4.0",
-    "numpy>=1.20.0",
+    "matplotlib",
+    "numpy",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=6.2.0",
-    "black>=20.8b1",
-    "ruff>=0.3.0",
-    "spinx>=3.5.3",
+    "pytest",
+    "black",
+    "ruff",
+    "spinx",
 ]
 
 [project.urls]
