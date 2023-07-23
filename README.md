@@ -32,10 +32,10 @@ import matplotlib.pyplot as plt
 from mpl_histcolorbar import histcolorbar
 
 rng = np.random.default_rng(seed=42)
-im = rng.standard_normal(size=(25, 100))
+data = rng.standard_normal(size=(25, 100))
 fig, ax = plt.subplots()
-plot_im = ax.imshow(im)
-hcb = histcolorbar(fig, plot_im, location='bottom')
+im = ax.imshow(data)
+hcb = histcolorbar(fig, im, location='bottom')
 ```
 
 ![Example](https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/readme_example.png?raw=true)
