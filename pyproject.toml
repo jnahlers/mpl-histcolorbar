@@ -34,7 +34,8 @@ dev = [
     "black",
     "ruff",
     "spinx",
-    "build"
+    "sphinx_rtd_theme",
+    "build",
 ]
 
 [project.urls]
