@@ -12,34 +12,40 @@ import numpy as np
 
 
 def histcolorbar(fig, mappable, cax=None, ax=None, use_gridspec=True, **kwargs):
-    """Add a histcolorbar to a plot.
+    """Add a `HistColorbar` to a plot.
 
-    This function is based on matplotlib.Figure.colorbar, and accepts all
-    the same arguments with the addition of keyword arguments specific
+    This function is based on `matplotlib.figure.Figure.colorbar`, and accepts all
+    the same arguments with the addition of an argument that takes the `Figure` to
+    which the histcolorbar will be added, as well as keyword arguments specific
     to a histcolorbar.
 
     Parameters
     ----------
-    fig : matplotlib.figure.Figure
-        The figure to which the histcolorbar will be added.
-    mappable : matplotlib.cm.ScalarMappable
-        The mappable to which the histcolorbar applies.
-    cax : matplotlib.axes.Axes, optional
-        The axes onto which the histcolorbar will be drawn.
-    ax : matplotlib.axes.Axes, optional
-        The axes from which space for the histcolorbar axes will be stolen.
-        Used if cax is not provided.
+    fig : `matplotlib.figure.Figure`
+        The figure to which the `HistColorbar` will be added.
+    mappable : `matplotlib.cm.ScalarMappable`
+        The `ScalarMappable` described by this histcolorbar.
+    cax : `matplotlib.axes.Axes`, optional
+        Axes into which the histcolorbar will be drawn.  If `None`, then a new
+        Axes is created and the space for it will be stolen from the Axes(s)
+        specified in *ax*.
+    ax : `matplotlib.axes.Axes` or iterable or `numpy.ndarray` of Axes, optional
+        The one or more parent Axes from which space for a new histcolorbar Axes
+        will be stolen. This parameter is only used if *cax* is not set.
+
+        Defaults to the Axes that contains the mappable used to create the
+        histcolorbar.
     use_gridspec : bool, optional
-        If cax is None, a new cax is created as an instance of
-        Axes.  If ax is positioned with a subplotspec and use_gridspec
-        is True, then cax is also positioned with a subplotspec.
+        If *cax* is ``None``, a new *cax* is created as an instance of
+        Axes.  If *ax* is positioned with a subplotspec and *use_gridspec*
+        is ``True``, then *cax* is also positioned with a subplotspec.
     **kwargs
         Additional keyword arguments are described in the docstring of
         `HistColorbar`.
 
     Returns
     -------
-    histcolorbar : HistColorbar
+    histcolorbar : `mpl_histcolorbar.HistColorbar`
     """
     if ax is None:
         ax = getattr(mappable, "axes", None)
@@ -84,7 +90,7 @@ def histcolorbar(fig, mappable, cax=None, ax=None, use_gridspec=True, **kwargs):
 
 class HistColorbar(Colorbar):
     """
-    An extension of the Matplotlib Colorbar that shows a histogram of the color values.
+    A subclass of matplotlib's `Colorbar` that shows a histogram of the color values.
 
     Parameters
     ----------
