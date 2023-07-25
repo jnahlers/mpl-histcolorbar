@@ -82,6 +82,7 @@ of a :code:`Figure`. mpl-histcolorbar provides an equivalent function
    :maxdepth: 2
    :caption: Contents:
 
+   usage
    api
    ...
 
