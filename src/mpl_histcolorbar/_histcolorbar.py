@@ -85,7 +85,7 @@ def histcolorbar(fig, mappable, cax=None, ax=None, use_gridspec=True, **kwargs):
     if not userax:
         fig.sca(current_ax)
     fig.stale = True
-    return hcb, cax
+    return hcb
 
 
 class HistColorbar(Colorbar):
