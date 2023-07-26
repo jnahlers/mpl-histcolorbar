@@ -83,6 +83,7 @@ of a :code:`Figure`. mpl-histcolorbar provides an equivalent function
    :caption: Contents:
 
    usage
+   contributing
    api
    ...
 
