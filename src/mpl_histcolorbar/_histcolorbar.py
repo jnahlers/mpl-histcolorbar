@@ -2,6 +2,7 @@ __all__ = ['histcolorbar', 'HistColorbar']
 
 import copy
 import math
+import warnings
 
 import matplotlib as mpl
 import matplotlib.colorbar as cbar
@@ -92,12 +93,29 @@ class HistColorbar(Colorbar):
     """
     A subclass of matplotlib's `Colorbar` that shows a histogram of the color values.
 
+    Unlike matplotlib's colorbar, a scalar mappable must be provided to the
+    histcolorbar, as the histogram is calculated from the mappable's array.
+    The histcolorbar is designed as a drop-in replacement for matplotlib's colorbar,
+    so all of `Colorbar`'s parameters are accepted, but some are ignored (see below).
+
     Parameters
     ----------
     ax : `matplotlib.axes.Axes`
-        The axes object in which the colorbar is drawn.
+        The axes instance in which the histcolorbar is drawn.
     mappable : `matplotlib.cm.ScalarMappable`
-        The mappable object which the colorbar applies its colormap to.
+        The mappable whose array will be histogrammed, and whose colormap and norm will
+        be used. Unlike `matplotlib.colorbar.Colorbar`, this parameter is required.
+        For compatibility with `matplotlib.colorbar.Colorbar`, a default value of None
+        is allowed, but this will raise an error.
+    cmap : `matplotlib.colors.Colormap`, optional
+        This parameter is ignored, and only included for compatibility with
+        `matplotlib.colorbar.Colorbar`. If it is not None, a warning will be raised.
+    norm : `matplotlib.colors.Normalize`, optional
+        This parameter is ignored, and only included for compatibility with
+        `matplotlib.colorbar.Colorbar`. If it is not None, a warning will be raised.
+    alpha : float, optional
+        The histcolorbar transparency between 0 (transparent) and 1 (opaque). If None,
+        the alpha value of the mappable's cmap will be used. The default value is None.
     bins : int or sequence of scalars or str, optional
         If bins is an int, it defines the number of equal-width bins in the
         given range (10, by default). If bins is a sequence, it defines the
@@ -115,29 +133,43 @@ class HistColorbar(Colorbar):
         The color of the histogram. The default value is None, which will color the
         histogram using the colors of the colormap. If separate_hist is False, this
         parameter is ignored.
-    alpha : float, optional
-        The alpha value of the histogram. The default value is None, which will use the
-        alpha value of the colormap.
     """
-    def __init__(self, ax, mappable, *,
-                 bins='auto',
-                 separate_hist=False,
-                 hist_fraction=0.5,
-                 hist_color=None,
+    def __init__(self, ax, mappable=None, *, cmap=None,
+                 norm=None,
                  alpha=None,
+                 values=None,
+                 boundaries=None,
                  orientation=None,
                  ticklocation='auto',
+                 extend=None,
                  spacing='uniform',
                  ticks=None,
                  format=None,
                  drawedges=False,
                  filled=True,
+                 extendfrac=None,
+                 extendrect=False,
                  label='',
                  location=None,
+                 bins='auto',
+                 separate_hist=False,
+                 hist_fraction=0.5,
+                 hist_color=None,
                  ):
-        # Calculate a histogram of the values in the mappable.
-        # As there may be nan's in the mappable, we need to exclude them when
-        # calculating the histogram.
+        if mappable is None:
+            raise ValueError("Mappable must be provided to HistColorbar.")
+        if cmap is not None:
+            warnings.warn("cmap is ignored when creating a HistColorbar.")
+        if norm is not None:
+            warnings.warn("norm is ignored when creating a HistColorbar.")
+        if values is not None:
+            warnings.warn("values is ignored when creating a HistColorbar.")
+        if boundaries is not None:
+            warnings.warn("boundaries is ignored when creating a HistColorbar.")
+
+        # Calculate a histogram of the values in the mappable's array.
+        # Ensure the data is finite, as np.histogram will raise an error if it
+        # encounters a nan or inf.
         data = mappable.get_array()
         self._hist, self._bin_edges = np.histogram(data[np.isfinite(data)], bins=bins)
 
@@ -176,8 +208,10 @@ class HistColorbar(Colorbar):
         # _draw_all().
         Colorbar.__init__(self, ax, mappable, alpha=alpha, values=values,
                           orientation=orientation, ticklocation=ticklocation,
+                          extend=extend,
                           spacing=spacing, ticks=ticks, format=format,
-                          drawedges=drawedges, filled=filled, label=label,
+                          drawedges=drawedges, filled=filled, extendfrac=extendfrac,
+                          extendrect=extendrect, label=label,
                           location=location)
 
     def _draw_all(self):
