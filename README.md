@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="mpl-histcolorbar logo" width=60% src="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png?raw=true">
+  <img alt="mpl-histcolorbar logo" width=60% src="https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/logo.png">
 </p>
 
 # mpl-histcolorbar
@@ -38,7 +38,7 @@ im = ax.imshow(data)
 hcb = histcolorbar(fig, im, location='bottom')
 ```
 
-![Example](https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/readme_example.png?raw=true)
+![Example](https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/readme_example.png)
 
 Documentation is available at [mpl-histcolorbar.readthedocs.io](https://mpl-histcolorbar.readthedocs.io/en/latest/).
 
