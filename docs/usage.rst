@@ -79,7 +79,7 @@ an arbitrary solid color can be chosen for the histogram:
     hcb = histcolorbar(fig, im, location="bottom", separate_hist=True,
                        hist_fraction=0.75, hist_color="red")
 
-.. image:: _static/pareto_example_with_cb_black.png
+.. image:: _static/pareto_example_with_cb_red.png
   :width: 800
   :alt: Example of a heavily weighted black histogram with a colorbar
 
