@@ -72,7 +72,7 @@ of a :code:`Figure`. mpl-histcolorbar provides an equivalent function
     im = ax.imshow(data)
 
     # Add the HistColorbar
-    hcb = histcolorbar(fig, im, location='bottom')
+    hcb = histcolorbar(fig, im, location="bottom")
 
 .. image:: _static/readme_example.png
   :width: 800

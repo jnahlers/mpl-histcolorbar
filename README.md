@@ -35,7 +35,7 @@ rng = np.random.default_rng(seed=42)
 data = rng.standard_normal(size=(25, 100))
 fig, ax = plt.subplots()
 im = ax.imshow(data)
-hcb = histcolorbar(fig, im, location='bottom')
+hcb = histcolorbar(fig, im, location="bottom")
 ```
 
 ![Example](https://github.com/jnahlers/mpl-histcolorbar/blob/main/docs/_static/readme_example.png)
