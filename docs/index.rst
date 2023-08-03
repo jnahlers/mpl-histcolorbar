@@ -79,10 +79,9 @@ of a :code:`Figure`. mpl-histcolorbar provides an equivalent function
   :alt: Example of calling histcolorbar
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    usage
    contributing
    api
-   ...
