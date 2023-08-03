@@ -18,11 +18,11 @@ spectrum of the colormap.
 
     # Generate some data
     rng = np.random.default_rng(seed=42)
-    data = rng.pareto(a=3, size=(25, 100))
+    data = rng.pareto(a=3, size=(15, 100))
 
     # Plot an image
     fig, ax = plt.subplots()
-    im = ax.imshow(data)
+    im = ax.imshow(data, cmap='viridis_r')
 
     # Add the HistColorbar
     hcb = histcolorbar(fig, im, location="bottom")
@@ -45,11 +45,11 @@ the :code:`hist_fraction` keyword argument. The default value is 0.5:
 
     # Generate some data
     rng = np.random.default_rng(seed=42)
-    data = rng.pareto(a=3, size=(25, 100))
+    data = rng.pareto(a=3, size=(15, 100))
 
     # Plot an image
     fig, ax = plt.subplots()
-    im = ax.imshow(data)
+    im = ax.imshow(data, cmap='viridis_r')
 
     # Add the HistColorbar
     hcb = histcolorbar(fig, im, location="bottom", separate_hist=True, hist_fraction=0.75)
@@ -69,17 +69,17 @@ an arbitrary solid color can be chosen for the histogram:
 
     # Generate some data
     rng = np.random.default_rng(seed=42)
-    data = rng.pareto(a=3, size=(25, 100))
+    data = rng.pareto(a=3, size=(15, 100))
 
     # Plot an image
     fig, ax = plt.subplots()
-    im = ax.imshow(data)
+    im = ax.imshow(data, cmap='viridis_r')
 
     # Add the HistColorbar
     hcb = histcolorbar(fig, im, location="bottom", separate_hist=True,
-                       hist_fraction=0.75, hist_color="red")
+                       hist_fraction=0.75, hist_color="black")
 
-.. image:: _static/pareto_example_with_cb_red.png
+.. image:: _static/pareto_example_with_cb_black.png
   :width: 800
   :alt: Example of a heavily weighted black histogram with a colorbar
 
