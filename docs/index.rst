@@ -86,11 +86,3 @@ of a :code:`Figure`. mpl-histcolorbar provides an equivalent function
    contributing
    api
    ...
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
