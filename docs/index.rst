@@ -12,11 +12,7 @@ Installation
 
 mpl-histcolorbar is available on PyPI and can be installed with pip::
 
-    pip install mpl-histcolorbar
-
-or with conda::
-
-    conda install -c conda-forge mpl-histcolorbar
+    pip install mpl_histcolorbar
 
 Dependencies
 ^^^^^^^^^^^^

@@ -18,12 +18,6 @@ mpl-histcolorbar is available as [`mpl-histcolorbar`](https://pypi.org/project/m
 pip install mpl_histcolorbar
 ```
 
-or [`mpl-histcolorbar`](https://anaconda.org/conda-forge/mpl-histcolorbar) on conda-forge:
-
-```bash
-conda install -c conda-forge mpl_histcolorbar
-```
-
 ## Usage
 
 ```python
