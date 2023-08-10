@@ -12,7 +12,7 @@ A drop-in replacement for matplotlib's colorbar that shows the frequency of each
 
 ## Getting started
 
-mpl-histcolorbar is available as [`mpl-histcolorbar`](https://pypi.org/project/mpl-histcolorbar/) on PyPI:
+mpl-histcolorbar is available as [`mpl_histcolorbar`](https://pypi.org/project/mpl_histcolorbar/) on PyPI:
 
 ```bash
 pip install mpl_histcolorbar
