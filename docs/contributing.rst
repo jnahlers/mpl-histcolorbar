@@ -20,13 +20,6 @@ colormap. The basis of the histcolorbar is to extend this to an MxN grid, where 
 (related to) the maximum of the histogram of the scalarmappable data used to generate
 the colorbar.
 
-A matplotlib colorbar is drawn using :code:`pcolormesh`, which "creates a pseudocolor
-plot with a non-regular rectangular grid." As a standard colorbar only varies in one
-dimension, the pcolormesh is a 1xN grid, where N is the number of colors in the
-colormap. The basis of the histcolorbar is to extend this to an MxN grid, where M is
-(related to) the maximum of the histogram of the scalarmappable data used to generate
-the colorbar.
-
 Testing
 -------
 Testing is done using `pytest <https://docs.pytest.org/>`_. To run the tests, simply
