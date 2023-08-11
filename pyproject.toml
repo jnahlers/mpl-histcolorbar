@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mpl-histcolorbar"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
     { name = "Jannis Ahlers", email = "jannis.ahlers@monash.edu" }
 ]
