@@ -10,8 +10,15 @@ some guidance for contributors.
 
 Design
 ------
-mpl-histcolorbar provides a drop-in replacement for matplotlib's colorbar that
-displays a histogram of the data used to generate the colorbar.
+mpl-histcolorbar is intended as a drop-in replacement for matplotlib's colorbar. As such, the API is
+intended to be compatible with matplotlib's colorbar.
+
+A matplotlib colorbar is drawn using `pcolormesh <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html>`_, which "creates a pseudocolor
+plot with a non-regular rectangular grid." As a standard colorbar only varies in one
+dimension, the pcolormesh is a 1xN grid, where N is the number of colors in the
+colormap. The basis of the histcolorbar is to extend this to an MxN grid, where M is
+(related to) the maximum of the histogram of the scalarmappable data used to generate
+the colorbar.
 
 Testing
 -------
