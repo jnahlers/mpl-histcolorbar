@@ -15,23 +15,21 @@ displays a histogram of the data used to generate the colorbar.
 
 Testing
 -------
-Testing is done using `pytest`. To run the tests, simply run `pytest` from the
-root directory of the repository.
+Testing is done using `pytest <https://docs.pytest.org/>`_. To run the tests, simply
+run :code:`pytest` from the root directory of the repository.
 
 Documentation
 -------------
-Documentation is built using `sphinx`. To build the documentation, run
-:code:`make html` from the `docs` directory. The documentation is built in the
-`docs/_build/html` directory.
+Documentation is built using `sphinx <https://www.sphinx-doc.org/en/master/>`_. To build
+the documentation, run :code:`make html` from the ``docs`` directory. The documentation
+is built in the ``docs/_build/html`` directory.
 
 Packaging
 ---------
 The package is built using PyPA's
 `build <https://packaging.python.org/en/latest/key_projects/#build>`_. To build the
 package, run :code:`python -m build` from the root directory of the repository. The
-package is built in the `dist` directory.
-
-Versioning
-----------
-This project uses `semantic versioning`. For the versions available, see the
-`tags on this repository`.
+package is built in the ``dist`` directory. Use
+`twine <https://packaging.python.org/en/latest/key_projects/#twine>`_ to upload the
+package to PyPI. To upload the package, run :code:`twine upload dist/*` from the root
+directory of the repository.
