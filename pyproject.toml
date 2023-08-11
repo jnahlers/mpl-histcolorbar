@@ -36,6 +36,7 @@ dev = [
     "spinx",
     "sphinx_rtd_theme",
     "build",
+    "twine",
 ]
 
 [project.urls]
