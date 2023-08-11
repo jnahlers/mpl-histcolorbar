@@ -10,7 +10,7 @@ mpl-histcolorbar: a histogram + colorbar for matplotlib
 Installation
 ------------
 
-mpl-histcolorbar is available on PyPI and can be installed with pip::
+mpl-histcolorbar is available as `mpl_histcolorbar <https://pypi.org/project/mpl_histcolorbar/>`_ on PyPI::
 
     pip install mpl_histcolorbar
 
